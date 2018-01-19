@@ -1,46 +1,67 @@
+:root {
+  --base-color: #F8F8F8;
+  --border-color: #5F5F5F;
+  --text-color: #575757;
+  --inverted-text-color: #DDDDDD;
+}
+
 html {
-  background-color: #FFFFFF;
+  background-color: var(--base-color);
   font-family: Calibri;
   font-size: 14px;
 }
 
 body {
-  background-color: #F0F0F0;
+  background-color: var(--base-color);
   width: 350px;
-  border: 1px double #999999;			
 }
 
 .container {
-  margin: 2px 10px 10px 10px;
+  margin: 2px 2px 2px 2px;
+  border-bottom: 1px dotted var(--border-color);
 }
 
 .inputBox {
   font-family: Calibri; 
   font-size: 14px; 
+  color: var(--text-color);
   margin: 2px 2px 2px 2px;
-  border: 1px solid #999999;			
+  width: 300px;
+  border: 1px solid var(--border-color);
 }
 
 .output {
   font-family: Calibri; 
   font-size: 14px; 
+  color: var(--text-color);
   margin: 2px 2px 2px 2px; 
 }
 
+.button-plus {
+  background-color: var(--border-color); 
+  color: var(--inverted-text-color);
+  border: 0px solid var(--border-color);
+  font-size: 14px;
+  width: 100%;
+  padding-bottom: 2px;
+}
+
 .buttonx {
-  background-color: #F0F0F0; 
-  color: black; 
-  border: 1px solid #AAAAAA;
+  background-color: var(--base-color); 
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  float: right;
+  font-size: 14px;
+  padding-bottom: 2px;
+  margin: 2px 2px 2px 2px;
   border-radius: 2px;
 }
 
 .buttonx:hover {
-  background-color: #AAAAAA;
-  color: black;
+  background-color: var(--border-color);
+  color: var(--inverted-text-color);
 }
 
 #currentEpoch,#currentTime {
   font-weight: bold;
 }
-
-

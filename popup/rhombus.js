@@ -47,14 +47,11 @@ function createNextInput(id) {
   if (nextContainer == null) {
     nextContainer = document.createElement("div");
     nextContainer.setAttribute("id", "container" + id);
-    nextContainer.style.margin = "2px 10px 10px 10px";
+    nextContainer.setAttribute("class", "container");
 
     var nextInput = document.createElement("input");
     nextInput.setAttribute("id", "input" + id);
-    nextInput.style.fontFamily = "Calibri";
-    nextInput.style.fontSize = "14px";
-    nextInput.style.margin = "2px 2px 2px 2px";
-    nextInput.style.border = "1px solid #999999";
+    nextInput.setAttribute("class", "inputBox");
 
     var nextCancel = document.createElement("button");
     nextCancel.setAttribute("id", "cancel" + id);
@@ -83,11 +80,9 @@ function createOutputElement(container, id) {
   if (outputBox == null) {
     outputBox = document.createElement("output");
     outputBox.setAttribute("id", id);
-    outputBox.style.fontFamily = "Calibri";
-    outputBox.style.fontSize = "14px";
-    outputBox.style.margin = "2px 2px 2px 2px";
+    outputBox.setAttribute("class", "output");
 
-    container.appendChild(document.createElement("br"))
+    container.appendChild(document.createElement("br"));
     container.appendChild(outputBox);
   }
 
@@ -108,4 +103,3 @@ function getOutput(inputBox) {
     return ["Invalid date", "Invalid date"];
   }
 }
-
