@@ -27,6 +27,18 @@ body {
   margin: 2px 2px 2px 2px; 
 }
 
+.buttonx {
+  background-color: #F0F0F0; 
+  color: black; 
+  border: 1px solid #AAAAAA;
+  border-radius: 2px;
+}
+
+.buttonx:hover {
+  background-color: #AAAAAA;
+  color: black;
+}
+
 #currentEpoch,#currentTime {
   font-weight: bold;
 }
