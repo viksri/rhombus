@@ -18,6 +18,16 @@
     </div>
     <div id="toolbar">
       <button class="button-plus" id="addContainer">+</button>
+      <div class="date-format-dropdown">
+        <label>
+          <select id="date-format">
+            <option value="%m/%d/%Y %T" selected>MM/DD/YYYY HH:MM:SS</option>
+            <option value="%d/%m/%Y %T">DD/MM/YYYY HH:MM:SS</option>
+            <option value="%m/%d/%Y %r">MM/DD/YYYY HH:MM:SS (AM/PM)</option>
+            <option value="%d/%m/%Y %r">DD/MM/YYYY HH:MM:SS (AM/PM)</option>
+          </select>
+        </label>
+      </div>
     </div>
     <script src="rhombus.js">
     </script>

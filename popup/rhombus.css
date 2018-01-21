@@ -23,11 +23,50 @@ body {
 
 .inputBox {
   font-family: Calibri; 
+  background: var(--base-color);
   font-size: 14px; 
   color: var(--text-color);
   margin: 2px 2px 2px 2px;
   width: 300px;
   border: 1px solid var(--border-color);
+}
+
+.date-format-dropdown {
+  float: right;
+  width: 73%;
+  background: var(--base-color);
+  border: 1px solid var(--border-color);
+  margin: 0 2px 0 1px;
+  border-radius: 2px;
+}
+
+.date-format-dropdown:after {
+  content: '<>';
+  font: 12px "Calibri";
+  color: var(--text-color);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  padding: 5px 0 0px;
+  position: absolute;
+}
+
+.date-format-dropdown select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  display: block;
+  width: 90%;
+  float: left;
+  font-family: Calibri; 
+  font-size: 14px;
+  color: var(--text-color);
+  background-color: var(--base-color);
+  background-image: none;
+  border: 0px solid var(--border-color);
+  border-radius: 2px;
 }
 
 .output {
@@ -40,10 +79,17 @@ body {
 .button-plus {
   background-color: var(--border-color); 
   color: var(--inverted-text-color);
-  border: 0px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  margin: 0 1px 0 2px;
   font-size: 14px;
-  width: 100%;
+  width: 24%;
   padding-bottom: 2px;
+  border-radius: 2px;
+}
+
+.button-plus:hover {
+  background-color: var(--base-color);
+  color: var(--text-color);
 }
 
 .buttonx {

@@ -1,4 +1,4 @@
-var currentInputId = '1'
+var currentInputId = 1
 var x = initialize();
 var outer = document.getElementById("outer");
 
@@ -7,13 +7,17 @@ addNewTimeButton.addEventListener("click", function() {
   createNextInput(currentInputId + 1);
 });
 
+var updateDateFormat = document.getElementById("date-format");
+updateDateFormat.addEventListener("change", function() {
+  updateOutputFormat();
+})
+
 function initialize() {
   var currentEpochBox = document.getElementById("currentEpoch");
   var currentTimeBox = document.getElementById("currentTime");
 
-  var currentTimeValue = new Date();
-  currentTimeBox.textContent = "Current time: " + currentTimeValue;
-  var currentEpochValue = currentTimeValue.getTime();
+  var currentEpochValue = new Date().getTime();
+  currentTimeBox.textContent = "Current time: " + formatDate(currentEpochValue);
   currentEpochBox.textContent = "Current epoch: " + currentEpochValue;
 
   var start = getInput(currentInputId);
@@ -25,6 +29,7 @@ function getInput(id) {
     addOutput(box, id);
   });
   currentInputId += 1;
+  console.log(currentInputId);
 }
 
 function addOutput(box, id) {
@@ -95,11 +100,28 @@ function getOutput(inputBox) {
   if (inputValue.length == 0) {
     return ["", ""];
   } else if (isEpoch(inputValue)) {
-    var timeValue = new Date(0);
-
-    timeValue.setUTCSeconds(inputValue / 1000);
-    return [timeValue, inputValue];
+    return [formatDate(inputValue), inputValue];
   } else {
     return ["Invalid date", "Invalid date"];
   }
+}
+
+function updateOutputFormat() {
+  var allElements = document.getElementsByClassName("output");
+
+  for (var i=0; i<allElements.length; i++) {
+    if (allElements[i].id.startsWith("time")) {
+      // Strip(4) i.e. "time" from "timeXXX" element id, and 
+      // Strip(7) i.e. "Epoch: " from "Epoch: XXX" epoch value.
+      var epoch = document.getElementById("epoch" + allElements[i].id.substr(4)).value.substr(7);
+      allElements[i].innerHTML = "Time: " + formatDate(epoch);
+    }
+  }
+}
+
+function formatDate(epoch) {
+  var formatString = document.getElementById("date-format").value;
+  var timeValue = new Date(0);
+  timeValue.setUTCSeconds(epoch / 1000);
+  return timeValue.toLocaleFormat(formatString);
 }
