@@ -123,5 +123,10 @@ function formatDate(epoch) {
   var formatString = document.getElementById("date-format").value;
   var timeValue = new Date(0);
   timeValue.setUTCSeconds(epoch / 1000);
-  return timeValue.toLocaleFormat(formatString);
+
+  return formatString
+    .replace("MM", (timeValue.getMonth() + 1))
+    .replace("DD", timeValue.getDate())
+    .replace("YYYY", timeValue.getFullYear())
+    .replace("T", timeValue.toTimeString());
 }
